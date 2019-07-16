@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/employees")
-@RequestMapping("/companies")
+
 public class HelloResource {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
@@ -26,7 +26,7 @@ public class HelloResource {
 
 
     @GetMapping()
-    public ResponseEntity getAll(){
+    public ResponseEntity get_All_employees(){
 
         result.add(new Employee(4,"alibaba1",20,"male",6000));
         return ResponseEntity.ok().body(result);
@@ -34,28 +34,23 @@ public class HelloResource {
 
 
     @PostMapping()
-    public ResponseEntity create(@RequestBody Employee employee){
+    public ResponseEntity create_employees(@RequestBody Employee employee){
         result.add(employee);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity put(@PathVariable Integer id,@RequestBody Employee employee){
+    public ResponseEntity put_employeea(@PathVariable Integer id,@RequestBody Employee employee){
         result.add(employee);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Integer id,@RequestBody Employee employee){
+    public ResponseEntity delete_employees(@PathVariable Integer id,@RequestBody Employee employee){
         result.remove(employee);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping()
-    public ResponseEntity getAll(){
 
-        result.add(new Company("alibaba",200,));
-        return ResponseEntity.ok().body(result);
-    }
 
 }
