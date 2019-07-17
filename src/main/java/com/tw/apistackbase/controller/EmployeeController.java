@@ -26,7 +26,7 @@ public class EmployeeController {
 
 
     @GetMapping()
-    public ResponseEntity get_All_employees(){
+    public ResponseEntity getAllEmployees(){
 
         result.add(new Employee(4,"alibaba1",20,"male",6000));
         return ResponseEntity.ok().body(result);
@@ -34,19 +34,19 @@ public class EmployeeController {
 
 
     @PostMapping()
-    public ResponseEntity create_employees(@RequestBody Employee employee){
+    public ResponseEntity createEmployees(@RequestBody Employee employee){
         result.add(employee);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity put_employeea(@PathVariable Integer id,@RequestBody Employee employee){
+    public ResponseEntity putEmployeea(@PathVariable Integer id,@RequestBody Employee employee){
         result.add(employee);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete_employees(@PathVariable Integer id,@RequestBody Employee employee){
+    public ResponseEntity deleteEmployees(@PathVariable Integer id,@RequestBody Employee employee){
         result.remove(employee);
         return ResponseEntity.ok().build();
     }
